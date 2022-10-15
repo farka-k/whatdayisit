@@ -96,5 +96,5 @@ calculate with 11 years.<br>
 2012 is leap year, from Jan to Apr<br>
 **3 + 1 + 3 + 2 = 9 ≡ 2(mod 7)<br>**
 for left 21days, 21 ≡ 0(mod 7).<br>
-So 6+2+0 = 8 ≡ 1(mod 7).<
+So 6+2+0 = 8 ≡ 1(mod 7).<br>
 '2012-05-21' is **Monday**.
