@@ -14,28 +14,34 @@ int parseDate(string date,int & year, int & month, int & day){
     
     return 0;
 }
+bool isLeapYear(int year){
+    if (year%400==0) return true;
+    else if(year%4==0 && year%100!=0) return true;
+    else return false;
+}
 int main(){ 
     string date;
+    bool isleapyear;
     int year, month, day;
     string dayOfWeek[7]={"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
     int daysInMonth[12]={31,28,31,30,31,30,31,31,30,31,30,31};
     
     cout<<"Date: ";
-    cin>>date;
+    getline(cin,date);
     
     while (parseDate(date,year,month,day)) {
         cout<<"Wrong date format\n";
         cout<<"Date: ";
-        cin>>date;
+        getline(cin,date);
     }
-    
+    isleapyear=isLeapYear(year);
     year=(year-1)%400;  
     int count100=year/100;
     year%=100;
     int count4=year/4;
     int monthsDay=0;
     for(int i=0;i<month-1;i++) monthsDay+=daysInMonth[i];
- 
+    if (isleapyear) monthsDay++;
     int result=(5*count100 +(year + count4) + monthsDay + day) %7;
 
     cout<<dayOfWeek[result]<<endl;
